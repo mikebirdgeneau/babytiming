@@ -7,7 +7,15 @@
 
 library(shiny)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
+  
+  observe({
+    query <- parseQueryString(session$clientData$url_search)
+    if (!is.null(query[['doi']])) {
+      message(query[['doi']])
+      updateDateInput(session, "dateOfInterest", value = query[['doi']])
+    }
+  })
   
   output$babyPlot <- renderPlot({
     input$dueDate
