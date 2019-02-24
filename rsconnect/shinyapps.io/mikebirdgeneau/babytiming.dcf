@@ -1,0 +1,12 @@
+name: babytiming
+title: babytiming
+username:
+account: mikebirdgeneau
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 736507
+bundleId: 1896302
+url: https://mikebirdgeneau.shinyapps.io/babytiming/
+when: 1551026401.35185
+asMultiple: FALSE
+asStatic: FALSE

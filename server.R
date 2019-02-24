@@ -20,10 +20,11 @@ shinyServer(function(input, output, session) {
   output$babyPlot <- renderPlot({
     input$dueDate
     input$dateOfInterest
-    input$parentalLeave
+    #input$parentalLeave
     isolate({
-    result <- babyTiming(ExpectedDate = input$dueDate,DateofInterest=input$dateOfInterest,VacationDuration = input$parentalLeave)
-    grid.arrange(result$p1, result$p2, ncol=1)
+    result <- babyTiming(ExpectedDate = input$dueDate,DateofInterest=input$dateOfInterest,VacationDuration = 1)
+    result$p1
+    #grid.arrange(result$p1, result$p2, ncol=1)
     })
   })
   
@@ -31,15 +32,16 @@ shinyServer(function(input, output, session) {
     result <- data.frame(result=unlist(
       babyTiming(
         ExpectedDate = input$dueDate,
-        DateofInterest=input$dateOfInterest,
-        VacationDuration = input$parentalLeave)$messages))
+        DateofInterest=input$dateOfInterest
+        #VacationDuration = input$parentalLeave
+        )$messages))
     
     list(
       strong(paste0(result$result[1],":")),
       tags$ul(
         tags$li(result$result[2]),
-        tags$li(result$result[3]),
-        tags$li(result$result[4])
+        tags$li(result$result[3])#,
+        #tags$li(result$result[4])
       )
     )
     

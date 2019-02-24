@@ -26,8 +26,8 @@ babyTiming<-function(ExpectedDate="2016/02/29",DateofInterest="2016/02/2015",Vac
   messages <- list(
     paste0("Based on today's date of ",currentDate,", and an expected due date of: ",ExpectedDate),
     paste0("There is a ", round(data[date==DateofInterest,scaled.prob]*100,1),"% chance the baby will be born on ",DateofInterest),
-    paste0("There is a ", round(data[date<DateofInterest,sum(scaled.prob)]*100,1),"% chance the baby will be born before ",DateofInterest),
-    paste0("There is a ", round(data[date<=DateofInterest& date>=(DateofInterest-VacationDuration),sum(scaled.prob)]*100,1),"% chance Mike will miss your meeting (due to baby related reasons) if it is on ",DateofInterest)
+    paste0("There is a ", round(data[date<DateofInterest,sum(scaled.prob)]*100,1),"% chance the baby will be born before ",DateofInterest)
+    #paste0("There is a ", round(data[date<=DateofInterest& date>=(DateofInterest-VacationDuration),sum(scaled.prob)]*100,1),"% chance {parent} will miss your meeting (due to baby related reasons) if it is on ",DateofInterest)
   )
   
   library(zoo)
